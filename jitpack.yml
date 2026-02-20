@@ -2,8 +2,10 @@ jdk:
   - openjdk17
 
 before_install:
-  - sdk install java 17.0.9-tem
-  - sdk use java 17.0.9-tem
+  - curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  - sudo apt-get install -y git-lfs
+  - git lfs install
+  - git lfs pull
 
 install:
   - ./gradlew assembleRelease publishToMavenLocal
